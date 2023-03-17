@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/utils/screen_helper.dart';
 import 'package:responsive_framework/responsive_framework.dart';
@@ -36,12 +34,10 @@ class SkillSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: ScreenHelper(
-        desktop: _buildUi(kDesktopMaxWidth),
-        tablet: _buildUi(kTabletMaxWidth),
-        mobile: _buildUi(getMobileMaxWidth(context)),
-      ),
+    return ScreenHelper(
+      desktop: _buildUi(kDesktopMaxWidth),
+      tablet: _buildUi(kTabletMaxWidth),
+      mobile: _buildUi(getMobileMaxWidth(context)),
     );
   }
 
@@ -64,7 +60,7 @@ class SkillSection extends StatelessWidget {
                     width: 300.0,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 50.0,
                 ),
                 Expanded(
@@ -82,10 +78,10 @@ class SkillSection extends StatelessWidget {
                           height: 1.3,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10.0,
                       ),
-                      Text(
+                      const Text(
                         "This is all the skills listed below more will be added in due time. This is all the skills listed below more will be added in due time.",
                         style: TextStyle(
                           color: kCaptionColor,
@@ -93,42 +89,43 @@ class SkillSection extends StatelessWidget {
                           fontSize: 16.0,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 15.0,
                       ),
                       Column(
                         children: skills
                             .map(
                               (skill) => Container(
-                                margin: EdgeInsets.only(bottom: 15.0),
+                                margin: const EdgeInsets.only(bottom: 15.0),
                                 child: Row(
                                   children: [
                                     Expanded(
                                       flex: skill.percentage,
                                       child: Container(
-                                        padding: EdgeInsets.only(left: 10.0),
+                                        padding:
+                                            const EdgeInsets.only(left: 10.0),
                                         alignment: Alignment.centerLeft,
                                         height: 38.0,
-                                        child: Text(skill.skill),
                                         color: Colors.white,
+                                        child: Text(skill.skill),
                                       ),
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       width: 10.0,
                                     ),
                                     Expanded(
                                       // remaining (blank part)
                                       flex: 100 - skill.percentage,
-                                      child: Divider(
+                                      child: const Divider(
                                         color: Colors.white,
                                       ),
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       width: 10.0,
                                     ),
                                     Text(
                                       "${skill.percentage}%",
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         color: Colors.white,
                                         fontSize: 16.0,
                                       ),

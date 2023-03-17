@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <!--
+    <!--
     If you are serving your web app in a path other than the root, change the
     href value below to reflect the base path you are serving from.
 
@@ -14,46 +15,96 @@
     This is a placeholder for base href that will be replaced by the value of
     the `--base-href` argument provided to `flutter build`.
   -->
-  <base href="$FLUTTER_BASE_HREF">
+    <!-- <base href="$FLUTTER_BASE_HREF"> -->
 
-  <meta charset="UTF-8">
-  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
+    <meta charset="UTF-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="description" content="A portfolio of Jaimin Vadadoriya. Jaimin Vadadoriya was software developer in India.">
 
-  <!-- iOS meta tags & icons -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="portfolio">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+    <meta name="keywords" content="Jaimin, Vadadoriya, PortFolio, IT, Software Developer, India, Flutter, Appliaction, Software, jaimin, hire, vadadoriya, github, io">
+    <meta name="author" content="Jaimin Vadadoriya">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
+    <!-- iOS meta tags & icons -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="portfolio">
+    <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
-  <title>portfolio</title>
-  <link rel="manifest" href="manifest.json">
+    <!-- <meta flt-viewport="" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> -->
+    <meta flt-viewport="" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0">
 
-  <script>
-    // The value below is injected by flutter build, do not touch.
-    var serviceWorkerVersion = null;
-  </script>
-  <!-- This script adds the flutter initialization JS code -->
-  <script src="flutter.js" defer></script>
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+    <title>portfolio</title>
+    <link rel="manifest" href="manifest.json">
+
+    <script>
+        // The value below is injected by flutter build, do not touch.
+        var serviceWorkerVersion = null;
+    </script>
+    <!-- This script adds the flutter initialization JS code -->
+    <script src="flutter.js" defer></script>
+
+    <link rel="preload" href="https://jaiminvadadoriya.github.io/assets/assets/image/main.png" as="fetch" crossorigin>
+    <link rel="preload" href="https://jaiminvadadoriya.github.io/assets/assets/image/small.png" as="fetch" crossorigin>
+
+    <link rel="preload" href="https://jaiminvadadoriya.github.io/assets/fonts/MaterialIcons-Regular.otf" as="fetch" crossorigin>
+    <link rel="preload" href="https://jaiminvadadoriya.github.io/assets/packages/cupertino_icons/assets/CupertinoIcons.ttf" as="fetch" crossorigin>
+
+    <link rel="preload" href="https://fonts.gstatic.com/s/a/24cd5785a13eadfccb0517905a8c1032222212785fc3470a82b81beedb4e05e7.ttf" as="fetch" crossorigin>
+    <link rel="preload" href="https://fonts.gstatic.com/s/a/6e6ed20d655bef45270197c043b98acc546b2455874705cd35adda969c35c2c3.ttf" as="fetch" crossorigin>
 </head>
+
 <body>
-  <script>
-    window.addEventListener('load', function(ev) {
-      // Download main.dart.js
-      _flutter.loader.loadEntrypoint({
-        serviceWorker: {
-          serviceWorkerVersion: serviceWorkerVersion,
-        },
-        onEntrypointLoaded: function(engineInitializer) {
-          engineInitializer.initializeEngine().then(function(appRunner) {
-            appRunner.runApp();
-          });
-        }
-      });
-    });
-  </script>
+    <div class="loading" id="loading">
+        <style>
+            body {
+                background-color: #07111a;
+            }
+            
+            .loading {
+                position: absolute;
+                top: calc(50% - 100px);
+                left: calc(50% - 100px);
+                width: 200px;
+                height: 200px;
+                border: 5px solid #f3f3f3;
+                border-radius: 50%;
+                border-top: 3px solid #16b6a0;
+                /* border-top: 3px solid #345689; */
+                animation: spin 1s ease-in infinite;
+            }
+            
+            @keyframes spin {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+        </style>
+    </div>
+    <script>
+        window.addEventListener('load', function(ev) {
+            //loading my code
+            let loading = document.querySelector('#loading');
+            // Download main.dart.js
+            _flutter.loader.loadEntrypoint({
+                serviceWorker: {
+                    serviceWorkerVersion: serviceWorkerVersion,
+                },
+                onEntrypointLoaded: function(engineInitializer) {
+                    engineInitializer.initializeEngine().then(function(appRunner) {
+                        loading.remove();
+                        appRunner.runApp();
+                    });
+                }
+            });
+        });
+    </script>
 </body>
+
 </html>

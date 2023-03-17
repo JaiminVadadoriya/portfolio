@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:portfolio/utils/constants.dart';
 import 'package:portfolio/utils/globals.dart';
 
@@ -11,8 +9,10 @@ import 'components/footer.dart';
 import 'components/header.dart';
 import 'components/skill_section.dart';
 
+ScrollController scrollController = ScrollController();
+
 class Home extends StatelessWidget {
-  // const Home({super.key});
+  const Home({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -37,11 +37,13 @@ class Home extends StatelessWidget {
                           ),
                           padding: const EdgeInsets.symmetric(horizontal: 28.0),
                           child: TextButton(
-                            onPressed: headerItems[index].onTap,
+                            onPressed: () => headerItems[index].onTap(context),
                             child: Text(
                               headerItems[index].title,
                               style: const TextStyle(
+                                // color: kBackgroundColor,
                                 color: Colors.white,
+                                letterSpacing: 1.75,
                                 fontSize: 13.0,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -50,10 +52,13 @@ class Home extends StatelessWidget {
                         ),
                       )
                     : ListTile(
-                        title: Text(
-                          headerItems[index].title,
-                          style: const TextStyle(
-                            color: Colors.white,
+                        title: GestureDetector(
+                          onTap: () => headerItems[index].onTap(context),
+                          child: Text(
+                            headerItems[index].title,
+                            style: const TextStyle(
+                              color: Colors.white,
+                            ),
                           ),
                         ),
                       );
@@ -68,33 +73,30 @@ class Home extends StatelessWidget {
           ),
         ),
       ),
-      body: Container(
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                child: const Header(),
-              ),
-              Carousel(),
-              const SizedBox(
-                height: 20.0,
-              ),
-              const CvSection(),
-              const SizedBox(
-                height: 50.0,
-              ),
-              const EducationSection(),
-              const SizedBox(
-                height: 50.0,
-              ),
-              const SkillSection(),
-              const SizedBox(
-                height: 50.0,
-              ),
-              const Footer(),
-            ],
-          ),
+      body: SingleChildScrollView(
+        controller: scrollController,
+        child: Column(
+          // crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Header(),
+            Carousel(),
+            const SizedBox(
+              height: 20.0,
+            ),
+            const CvSection(),
+            const SizedBox(
+              height: 50.0,
+            ),
+            const EducationSection(),
+            const SizedBox(
+              height: 50.0,
+            ),
+            const SkillSection(),
+            const SizedBox(
+              height: 50.0,
+            ),
+            const Footer(),
+          ],
         ),
       ),
     );

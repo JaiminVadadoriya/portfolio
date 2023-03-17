@@ -1,4 +1,3 @@
-import 'package:carousel_slider/carousel_controller.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/utils/screen_helper.dart';
@@ -9,12 +8,12 @@ import 'carousel_items.dart';
 
 class Carousel extends StatelessWidget {
   Carousel({super.key});
-  CarouselController carouselController = CarouselController();
+  final CarouselController carouselController = CarouselController();
   @override
   Widget build(BuildContext context) {
     double carouselConatinerHeight = MediaQuery.of(context).size.height *
         (ScreenHelper.isMobile(context) ? .7 : .85);
-    return Container(
+    return SizedBox(
       height: carouselConatinerHeight,
       width: double.infinity,
       // color: Colors.yellow,
@@ -27,7 +26,7 @@ class Carousel extends StatelessWidget {
               carouselController: carouselController,
               options: CarouselOptions(
                 viewportFraction: 1,
-                scrollPhysics: NeverScrollableScrollPhysics(),
+                scrollPhysics: const NeverScrollableScrollPhysics(),
                 height: carouselConatinerHeight,
               ),
               items: List.generate(

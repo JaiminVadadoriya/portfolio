@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Flutter Portfolio",
+      title: "Jaimin",
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.dark,
       darkTheme: Theme.of(context).copyWith(
@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
           color: kBackgroundColor,
         ),
       ),
-      home: Home(),
+      home: const Home(),
     );
   }
 }
